@@ -24,10 +24,10 @@ func main() {
 
 	cs := grpc.NewServer()
 	pb.RegisterCalculatorServiceServer(cs, &CalculatorServer{})
+	reflection.Register(cs)
 
 	if err := cs.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve %v\n", err)
 	}
-	reflection.Register(cs)
 
 }

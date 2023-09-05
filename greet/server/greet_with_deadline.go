@@ -11,7 +11,7 @@ import (
 )
 
 func (s *Server) GreetWithDeadline(ctx context.Context, in *pb.GreetRequest) (*pb.GreetResponse, error) {
-	log.Fatalf("GreetWithDeadline was invoked with %v\n", in)
+	log.Printf("GreetWithDeadline was invoked with %v\n", in)
 
 	for i := 0; i < 3; i++ {
 		if ctx.Err() == context.DeadlineExceeded {
